@@ -1,0 +1,6 @@
+main: gg.joshbaker.killstats.KillStats
+name: "KillStats"
+version: "1.0.0"
+author: "josh devous"
+api-version: "1.20"
+soft-depend: [PlaceholderAPI]
