@@ -12,4 +12,4 @@ You can use the following placeholders via PlaceholderAPI to access statistics t
 - `killstats_deaths`
 - `killstats_kdr`
 - `killstats_killsreak`
-- `killstats_bestKillstreak`
+- `killstats_best_killstreak`
