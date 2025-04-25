@@ -2,10 +2,12 @@ package gg.joshbaker.killstats.listener
 
 import gg.joshbaker.killstats.KillStats
 import gg.joshbaker.killstats.profile.ProfileRegistry
+import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.entity.PlayerDeathEvent
 
 class KillListener(private val plugin: KillStats, private val profileRegistry: ProfileRegistry) : Listener {
+    @EventHandler
     fun onKill(event: PlayerDeathEvent) {
         val dead = event.entity
 
@@ -17,11 +19,9 @@ class KillListener(private val plugin: KillStats, private val profileRegistry: P
         }
 
         event.entity.killer?.let { killer ->
-            if (plugin.isTrackedWorld(killer.world.name)) {
-                profileRegistry.getProfile(killer.uniqueId).apply {
-                    handeKill()
-                    profileRegistry.saveProfile(killer.uniqueId, this)
-                }
+            profileRegistry.getProfile(killer.uniqueId).apply {
+                handeKill()
+                profileRegistry.saveProfile(killer.uniqueId, this)
             }
         }
     }
